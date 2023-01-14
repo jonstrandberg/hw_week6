@@ -22,10 +22,11 @@ Decorator.prototype.enoughPaint = function (room) {
 
 Decorator.prototype.canPaint = function (room) {
     if (this.enoughPaint(room)) {
-    return true;
+        room.paint()
     } else {
-    return false;
+    return false
     }
-};
+}; 
+    
 
 module.exports = Decorator
