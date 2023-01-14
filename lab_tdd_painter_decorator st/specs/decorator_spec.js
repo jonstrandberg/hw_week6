@@ -51,23 +51,25 @@ describe('Decorator', function () {
 
     it('should be able to calculate whether it has enough paint to paint a room', function() {
         decorator.addCanOfPaint(paintCan1)
-        decorator.addCanOfPaint(paintCan3)
+        decorator.addCanOfPaint(paintCan4)
         const expected = false
         assert.deepStrictEqual(decorator.enoughPaint(room), expected)
     })
 
-    xit('should be able to paint a room if there is enough paint in stock', function() {
-        decorator.addCanOfPaint(paintCan1)
+    it('should be able to paint a room if there is enough paint in stock', function() {
+        decorator.addCanOfPaint(paintCan2)
         decorator.addCanOfPaint(paintCan3)
+        decorator.canPaint(room)
         const expected = true
-        assert.deepStrictEqual(decorator.enoughPaint, expected)
+        assert.strictEqual(room.isPainted, expected)
     })
 
-    xit('should not paint a room if there is not enough paint in stock', function() {
+    it('should not paint a room if there is not enough paint in stock', function() {
         decorator.addCanOfPaint(paintCan1)
-        decorator.addCanOfPaint(paintCan3)
+        decorator.addCanOfPaint(paintCan4)
+        decorator.canPaint(room)
         const expected = false
-        assert.deepStrictEqual(decorator.enoughPaint, expected)
+        assert.strictEqual(room.isPainted, expected)
     })
 
 })

@@ -17,7 +17,15 @@ Decorator.prototype.calculateTotalPaintStock = function () {
 }
 
 Decorator.prototype.enoughPaint = function (room) {
-    return this.calculateTotalPaintStock() >= room.areaInSquareMeters;
+    return this.calculateTotalPaintStock() >= room.areaInSquareMetres;
+};
+
+Decorator.prototype.canPaint = function (room) {
+    if (this.enoughPaint(room)) {
+    return true;
+    } else {
+    return false;
+    }
 };
 
 module.exports = Decorator
